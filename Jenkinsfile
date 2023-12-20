@@ -29,10 +29,10 @@ pipeline{
             steps{
     
                 script{
-                    sh """
+                    sh '''
                     selection=3
                     echo "$selection" | sudo update-alternatives --config java
-                    """
+                    '''
                 }
             }
             } 
@@ -64,10 +64,10 @@ pipeline{
             steps{
     
                 script{
-                    sh """
+                    sh '''
                     selection=0
                     echo "$selection" | sudo update-alternatives --config java
-                    """
+                    '''
                 }
             }
             }
