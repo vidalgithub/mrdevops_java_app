@@ -2,7 +2,9 @@
 
 pipeline{
 
-    agent gcp
+    agent {
+        label 'gcp'
+    }
 
     parameters{
 
