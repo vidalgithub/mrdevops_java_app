@@ -19,6 +19,7 @@ pipeline{
         stage('Git Checkout'){
                     when { expression {  params.action == 'create' } }
             steps{
+            cleanWs()
             gitCheckout(
                 branch: "main",
                 url: "https://github.com/vidalgithub/mrdevops_java_app.git"
@@ -140,17 +141,17 @@ pipeline{
             }
         }
 
-        post {
-            // Clean after build
-            always {
-                cleanWs(cleanWhenNotBuilt: false,
-                        deleteDirs: true,
-                        disableDeferredWipeout: true,
-                        notFailBuild: true,
-                        patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-                                   [pattern: '.propsfile', type: 'EXCLUDE']])
-            }
-        }
+        // post {
+        //     // Clean after build
+        //     always {
+        //         cleanWs(cleanWhenNotBuilt: false,
+        //                 deleteDirs: true,
+        //                 disableDeferredWipeout: true,
+        //                 notFailBuild: true,
+        //                 patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+        //                            [pattern: '.propsfile', type: 'EXCLUDE']])
+        //     }
+        // }
         
     }
 }
