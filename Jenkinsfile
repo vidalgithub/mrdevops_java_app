@@ -29,7 +29,6 @@ pipeline{
             steps{
     
                 script{
-    
                     sh """
                     selection=3
                     echo "$selection" | sudo update-alternatives --config java
@@ -59,6 +58,20 @@ pipeline{
                }
             }
         }
+
+          stage('Select java 17 for sonarqube staticTest '){
+                when { expression {  params.action == 'create' } }
+            steps{
+    
+                script{
+                    sh """
+                    selection=0
+                    echo "$selection" | sudo update-alternatives --config java
+                    """
+                }
+            }
+            }
+        
         stage('Static code analysis: Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
