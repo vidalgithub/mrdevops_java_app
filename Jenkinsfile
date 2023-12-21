@@ -90,7 +90,7 @@ pipeline{
             steps{
                script{
                    
-                   def SonarQubecredentialsId = 'sonarqube-token'
+                   def SonarQubecredentialsId = 'sonarqube-10.3'
                    QualityGateStatus(SonarQubecredentialsId)
                }
             }
