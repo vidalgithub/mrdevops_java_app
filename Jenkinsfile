@@ -27,18 +27,18 @@ pipeline{
             }
         }
 
-          stage('Select java 8 for maven test '){
-                when { expression {  params.action == 'create' } }
-            steps{
+          // stage('Select java 8 for maven test '){
+          //       when { expression {  params.action == 'create' } }
+          //   steps{
     
-                script{
-                    sh '''
-                    selection=3
-                    echo "$selection" | sudo update-alternatives --config java
-                    '''
-                }
-            }
-            } 
+          //       script{
+          //           sh '''
+          //           selection=3
+          //           echo "$selection" | sudo update-alternatives --config java
+          //           '''
+          //       }
+          //   }
+          //   } 
 
     
          stage('Unit Test maven'){
