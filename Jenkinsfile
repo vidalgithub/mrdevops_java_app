@@ -80,8 +80,8 @@ pipeline{
             steps{
                script{
                    
-                   def SonarQubeServer = 'sonarqube-9.9'
-                   statiCodeAnalysis(SonarQubeServer)
+                   // def SonarQubeServer = 'sonarqube-9.9'
+                   statiCodeAnalysis()
                }
             }
         }
@@ -90,8 +90,8 @@ pipeline{
             steps{
                script{
                    
-                   def SonarQubeServer = 'sonarqube-9.9'
-                   QualityGateStatus(SonarQubeServer)
+                   // def SonarQubeServer = 'sonarqube-9.9'
+                   QualityGateStatus()
                }
             }
         }
