@@ -1,10 +1,10 @@
 @Library('my-shared-library') _
 
 pipeline{
-    agent any
-    // agent {
-    //     label 'gcp'
-    // }
+    // agent any
+    agent {
+        label 'gcp'
+    }
 
     parameters{
 
