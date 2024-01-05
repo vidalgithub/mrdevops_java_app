@@ -80,8 +80,8 @@ pipeline{
             steps{
                script{
                    
-                   // def SonarQubeServer = 'sonarqube-9.9'
-                   statiCodeAnalysis()
+                   def SonarQubecredentialsId = 'sonarqube-token'
+                   statiCodeAnalysis(SonarQubecredentialsId)
                }
             }
         }
