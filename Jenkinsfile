@@ -78,7 +78,7 @@ pipeline{
         stage('Static code analysis: Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
-              catchError(message:'Even if SonarAnalisis fails.') {
+              catchError(message:'Even if SonarAnalisis fails.',buildResult:'UNSTABLE',stageResult:'UNSTABLE') {
                script{
                    
                    def SonarQubecredentialsId = 'sonarqube-token'
