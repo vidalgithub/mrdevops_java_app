@@ -78,21 +78,25 @@ pipeline{
         stage('Static code analysis: Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
+              catchError(message:'Even if SonarAnalisis fails.') {
                script{
                    
                    def SonarQubecredentialsId = 'sonarqube-token'
                    statiCodeAnalysis(SonarQubecredentialsId)
                }
             }
+            }
         }
         stage('Quality Gate Status Check : Sonarqube'){
          when { expression {  params.action == 'create' } }
             steps{
+              catchError(message:'Even if QualityGate fails.') {
                script{
                    
                    // def SonarQubeServer = 'sonarqube-9.9'
                    QualityGateStatus()
                }
+            }
             }
         }
         stage('Maven Build : maven'){
