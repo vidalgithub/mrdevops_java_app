@@ -3,7 +3,7 @@
 pipeline{
     // agent any
     agent {
-        label 'kemgou'
+        label 'gce'
     }
 
     parameters{
